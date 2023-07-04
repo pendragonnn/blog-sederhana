@@ -1,3 +1,7 @@
+
+import { useContext } from "react";
+import { GlobalContext } from "../context";
+
 // const ArticleStatus = ({ isNew }) => {
 //   return isNew && <span>-- Baru !!!</span>
 // }
@@ -7,6 +11,7 @@ const NewArtikel = () => {
 }
 
 function Article(props) {
+  const user = useContext(GlobalContext);
   return (
     // react fragment
     <>
@@ -16,6 +21,9 @@ function Article(props) {
         {/* <ArticleStatus isNew={props.isNew}/> */}
         {props.isNew && <NewArtikel/>}
       </small>
+      <div>
+        <small>Ditulis oleh {user.username}</small>
+      </div>
     </>
   );
 }
